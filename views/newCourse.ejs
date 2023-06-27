@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="<%= csrfToken %>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>name</title>
+</head>
+<body>
+    <div class="grid grid-cols-6">
+        <div class="col-start-3 col-span-2">
+            <a href="/home" class="underline hover:underline-offset-4 underline-offset-2 text-lg font-semibold text-teal-600 mt-2">Home</a>
+            <h6 class="py-4 text-3xl font-semibold text-slate-600 mt-3">New Course</h6>
+            <form action="/newCourse" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <div class="py-3">
+                    <label for="courseTitle">Course Name:</label>
+                <input type="text" name="courseTitle" class="border border-gray-300 text-gray-900 rounded p-2 w-full">
+                </div>
+                <div class="py-3">
+                    <label for="courseDescription">Course Description:</label>
+                <input type="text" name="courseDescription" class="border border-gray-300 text-gray-900 rounded p-2 w-full">
+                </div>
+                <div class="py-3">
+                    <label for="startDate">Start Date of Course</label>
+                <input type="datetime-local"  name="startDate" class="border border-gray-300 text-gray-900 rounded p-2 w-full">
+                </div>
+                <div class="py-3">
+                    <label for="endDate">End Date of Course</label>
+                <input type="datetime-local"  name="endDate" class="border border-gray-300 text-gray-900 rounded p-2 w-full">
+                </div>
+                <div class="py-3">
+                    <label for="topics">Topics in this course (seperated with commas).</label>
+                <input type="text" name="topics" class="border border-gray-300 text-gray-900 rounded p-2 w-full">
+                </div>
+                <div class="py-3">
+                    <label for="price">Price of this course?</label>
+                <input type="number" name="price" class="border border-gray-300 text-gray-900 rounded p-2 w-full">
+                </div>
+                <div class="py-3">
+                <button type="submit" class="text-white bg-green-600 hover:bg-green-800 font-medium rounded px-5 py-2">Create Course</button>
+                </div>
+            </form>
+            <div style="margin-bottom: 20px">
+        <% if(messages && messages.error && messages.error.length > 0)  { %>
+        <% for(var i=0; i<messages.error.length; i++) { %>
+        <li style="color: red;"> <%= messages.error[i] %></li>
+        <% } %>
+        <% } %>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

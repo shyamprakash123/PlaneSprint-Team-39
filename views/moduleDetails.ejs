@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
+  <style>
+    .sub-topics {
+      display: none;
+      visibility: hidden;
+    }
+    .topic-link {
+      background-color: #60a5fa ;
+      color: white;
+      transition: background-color 1s ease;
+    }
+    .topic-link:hover {
+      background-color:  #2563eb;
+    }
+    .sub-topic {
+      background-color: white;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border-radius: 0.25rem;
+    }
+    .sub-topic:hover {
+        color: #2563eb;
+        background-color: aliceblue;
+    }
+  </style>
+</head>
+<body>
+  <%- include('navigationBar') %>
+  <br><br><br>
+  <div class="container mx-auto py-8">
+    <div class="grid grid-cols-6 gap-4">
+      <div class="col-start-2 col-span-4 bg-white rounded-lg shadow-md p-8 text-center">
+        <h2 class="text-2xl font-bold">Course Name</h2>
+        <div class="justify-between">
+            <% if(isInst){ %>
+                <button type="button" class="text-white bg-green-600 hover:bg-green-800 font-medium rounded px-5 py-2" onclick="window.location.href = '/addModule'">Add Module</button></span>
+                <% } %>
+          <% for (let i = 1; i <= 3; i++) { %>
+          <div class="justify-center">
+            <div class="my-8">
+              <a href="#" class="topic-link text-xl my-3 font-medium rounded px-64 py-5" onclick="toggleTopics(event, 'topics<%= i %>')">
+                Module <%= i %>: Introduction
+              </a>
+            </div>
+            <div class="grid grid-cols-7">
+              <div class="flex justify-center col-start-2 col-span-5">
+                <!--Keep Styling such that sub-topics are just included in the topic-->
+                <div class="m-auto gap-4">
+                  <ul id="topics<%= i %>" class="flex flex-wrap justify-center font-medium rounded p-3 hidden">
+                    <% for (let j = 1; j <= 9; j++) { %>
+                    <li class="sub-topic mx-1 border border-gray-400">
+                      <a href="/topicDetails" class="text-black-400">
+                        <h3 class="text-center">
+                          Sub-Module <%= (i - 1) * 3 + j %>
+                        </h3>
+                      </a>
+                    </li>
+                    <% } %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+        <hr>
+        <hr>
+        <div>
+            <h2 class="text-xl float-right">-Instructor Name</h2>
+        </div>
+        <script>
+          function toggleTopics(event, topicsId) {
+            event.preventDefault();
+            const topicsElement = document.getElementById(topicsId);
+            topicsElement.classList.toggle("hidden");
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

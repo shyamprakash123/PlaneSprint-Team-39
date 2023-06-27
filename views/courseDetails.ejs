@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Course Details</title>
+</head>
+<body>
+    <%- include('navigationBar') %>
+    <br>
+    <br>
+    <div class="grid grid-cols-9 mb-5">
+      <div class="col-start-2 col-span-5">
+        <div class="my-5">
+          <img
+            src="<%= courseDetails.img %>"
+            alt=""
+            width="700"
+          />
+        </div>
+        <div class="my-5">
+          <h2 class="text-2xl font-semibold">Course Name : <%= courseDetails.courseName %> </h2>
+        </div>
+        <div class="text-xl my-5">
+          <span class="font-semibold">Instructor :</span>
+          <span> <%= instructorName %></span>
+        </div>
+        <div class="text-xl my-5">
+          <span class="font-semibold">Duration : </span>
+          <span><%= duration %> Weeks</span>
+        </div>
+
+        <div class="text-xl my-5">
+          <h2 class="font-semibold">Description :</h2>
+          <P>
+            <%= courseDetails.description %>
+          </P>
+        </div>
+
+        <div class="text-xl my-5">
+          <h1 class="font-semibold">Course Content</h1>
+          <ol type="i">
+            <% for(let i=0; i < courseDetails.topics.length; i++){ %>
+            <li><%= courseDetails.topics[i] %></li>
+            <% } %>
+          </ol>
+        </div>
+        <% if(isInst){ %>
+          <span class="my-5">
+          <button type="button" class="text-white bg-blue-600 hover:bg-blue-800 font-medium rounded px-5 py-2" onclick="window.location.href = '/moduleDetails/<%= courseId %>'">View Course</button></span>
+      <% }else{ %>
+        <span class="my-5">
+          <button type="button" class="text-white bg-blue-600 hover:bg-blue-800 font-medium rounded px-5 py-2" onclick="window.location.href = '/moduleDetails/<%= courseId %>'">Enroll Now</button></span>
+        <% } %>
+      </div>
+    </div>
+</body>
+</html>
+</html>

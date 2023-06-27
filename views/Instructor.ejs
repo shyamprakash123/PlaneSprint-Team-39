@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>EdTech</title>
+    <style>
+        .box {
+  height: 170px;
+  padding-bottom: 15px;
+  width: 50%;
+}
+
+.course-card {
+  transition:0.3s;
+}
+
+.course-card:hover  p{
+  transform: scaleY(0.66)
+}
+.course-card:hover  h3{
+  transform: scaleY(0.88)
+}
+.course-card:hover  button{
+  transform: scaleY(0.88)
+}
+
+.course-card:hover {
+  transform: scaleY(1.2);
+  transform-origin: bottom;
+}
+    </style>
+  </head>
+
+  <body>
+    <%- include('navigationBar') %>
+    <br>
+    <br>
+    <div class="container mx-auto py-8">
+        <div class="grid grid-cols-6 gap-4">
+            <div class="col-start-2 col-span-4 bg-white rounded-lg shadow-md p-8">
+                <div
+                  class="col-start-3 col-span-2 bg-white mr-4 rounded"
+                  style="padding: 20px;"
+                >
+                  <div><button type="button" class="text-white bg-red-600 hover:bg-red-800 font-medium rounded px-5 py-2" onclick="">Create New Course</button></div>
+                  <div class="mb-4 flex justify-center"><p class="text-2xl font-bold mb-4 text-gray-700">Courses Created By You</p></div>
+                  <div class="mt-8">
+                    <!-- <h3 class="text-2xl font-semibold mb-4 underline">
+                      Featured Courses
+                    </h3> -->
+                    <div
+                      class="mt-1 grid grid-cols-6 gap-4 sm:grid-cols-2 lg:grid-cols-1"
+                    >
+                    <section class="featured-courses">
+                        <h2 class="text-2xl font-bold mb-4">Featured Courses</h2>
+                        <div class="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-10 bg-gray-100">
+                            <% for(let i = 0; i < 10; i++) { %>
+                                <div class="course-card bg-white p-4 rounded-lg shadow-md border-gray-600">
+                                    <img src="https://tse3.mm.bing.net/th?id=OIP.2Cr57sRQmceC9Py_zYWCUwHaDN&pid=Api&P=0&h=180" alt="no" class="w-full h-32 object-cover mb-4 rounded-lg">
+                                    <h3 class="text-lg font-bold mb-2">JavaScript</h3>
+                                    <div>
+                                        <p class="text-gray-600">description</p>
+                                        <div style="float: right;">
+                                        <button type="button" class="text-white bg-gray-600 hover:bg-gray-800 font-medium rounded px-5 py-2" onclick="window.location.href = '/courseDetails'">View Course</button></div>
+                                    </div>
+                                 </div> 
+                            <% } %> 
+                        </div>
+                    </section>
+                    </div>
+                  </div>
+                </div>
+                </div>
+        </div>
+    </div>
+    <div class="container mx-auto py-8">
+        <div class="grid grid-cols-6 gap-4">
+            <div class="col-start-2 col-span-4 bg-white rounded-lg shadow-md p-8">
+                <div
+                  class="col-start-3 col-span-2 bg-white mr-4 rounded"
+                  style="padding: 20px;"
+                >
+                  <div class="mb-4 flex justify-center"><p class="text-2xl font-bold mb-4 text-gray-700">Available Courses</p></div>
+                  <div class="mt-8">
+                    <!-- <h3 class="text-2xl font-semibold mb-4 underline">
+                      Featured Courses
+                    </h3> -->
+                    <div
+                      class="mt-1 grid grid-cols-6 gap-4 sm:grid-cols-2 lg:grid-cols-1"
+                    >
+                    <section class="featured-courses">
+                        <h2 class="text-2xl font-bold mb-4">Featured Courses</h2>
+                        <div class="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-10 bg-gray-100">
+                            <% for(let i = 0; i < 10; i++) { %>
+                                <div class="course-card bg-white p-4 rounded-lg shadow-md">
+                                    <img src="https://tse3.mm.bing.net/th?id=OIP.2Cr57sRQmceC9Py_zYWCUwHaDN&pid=Api&P=0&h=180" alt="no" class="w-full h-32 object-cover mb-4 rounded-lg">
+                                    <h3 class="text-lg font-bold mb-2">JavaScript</h3>
+                                    <p class="text-gray-600">description</p>
+                                 </div> 
+                            <% } %> 
+                        </div>
+                    </section>
+                    </div>
+                  </div>
+                </div>
+                </div>
+        </div>
+    </div>
+
+  </body>
+</html>

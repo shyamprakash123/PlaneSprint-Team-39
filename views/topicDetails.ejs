@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('navigationBar') %>
+    <br />
+    <br />
+    <div class="container mx-auto my-10 py-8">
+      <div class="grid grid-cols-6 gap-4">
+        <div class="col-start-2 col-span-4 bg-white rounded-lg shadow-md p-8">
+          <% for (let i = 1; i <= 1; i++) { %>
+          <div class="my-5 text-2xl font-semibold">
+            <h2>
+              <a href="">Chapter <%= i %>: Introduction</a> >
+              <a href="">Topic 1</a>
+            </h2>
+          </div>
+          <hr />
+          <div class="my-5 text-2xl font-semibold">
+            <h2>Topic <%= i %></h2>
+          </div>
+          <div class="my-5 text-xl">
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Voluptates possimus iste libero veritatis voluptatum accusantium
+              rerum debitis harum? Eveniet aut minima quasi autem dolor
+              voluptatibus dolorum expedita saepe, obcaecati distinctio, aliquam
+              vitae fugiat ab voluptas sequi eum labore sint molestias tempora
+              dolorem dolores vero! Odio asperiores iure vel neque alias
+              repellat doloribus architecto aliquid ut pariatur voluptas
+              repellendus exercitationem earum ratione itaque, sunt, at dicta
+              optio nemo nostrum sequi a magnam accusamus. Amet tempora, est
+              voluptate earum, perferendis porro, beatae similique officiis
+              pariatur accusamus maiores aperiam dolorum necessitatibus dolores
+              soluta? A ab at reiciendis eum provident alias vero rem
+              temporibus.
+            </p>
+          </div>
+          <div class="flex-justify-center">
+            <div class="my-5 text-xl m-auto">
+              <img
+                class="w-32"
+                src="https://myitschools.com/wp-content/uploads/2022/04/Cprogram.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <hr />
+          <div class="my-5 text-xl font-bold">
+            <h2>Sub Topic</h2>
+          </div>
+
+          <div class="my-5 text-xl">
+            <h2>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum
+              consequuntur laboriosam vel provident delectus veniam, quasi
+              repellat voluptatem? Sint odit quibusdam laboriosam quis ex,
+              dignissimos repudiandae assumenda omnis, obcaecati vitae soluta.
+              Iusto culpa et fugiat laborum, odit voluptatibus quis quidem
+              voluptate minus? Error ut natus necessitatibus minima velit optio
+              repudiandae?
+            </h2>
+          </div>
+          <div class="my-5 mx-12 text-xl">
+            <iframe
+              width="850"
+              height="400"
+              src="https://www.youtube.com/embed/55l-aZ7_F24"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <br>
+          <div >
+            <h2 class="my-5 text-xl font-bold">Material</h2>
+            <% if(1) { %>
+                <a href="#">File Download</a>
+                <br>
+            <% } else { %>
+            <input type="file">
+            <% } %>
+          </div>
+          <% } %>
+
+          <hr />
+          <div class="my-5 mx-20 p-4">
+            <span class="float-left">
+              <a
+                href="#"
+                class="border border-gray-600 text-white bg-cyan-600 hover:bg-cyan-800 my-3 font-medium rounded px-8 py-3 text-xl"
+                >Previous</a
+              >
+            </span>
+            <span class="float-right">
+              <a
+                href="#"
+                class="border border-gray-600 text-white bg-cyan-600 hover:bg-cyan-800 my-3 font-medium rounded px-8 py-3 text-xl"
+                >Next</a
+              >
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
